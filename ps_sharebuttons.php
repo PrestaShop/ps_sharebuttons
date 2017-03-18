@@ -32,7 +32,7 @@ use PrestaShop\PrestaShop\Core\Module\WidgetInterface;
 
 class Ps_Sharebuttons extends Module implements WidgetInterface
 {
-    protected static $networks = ['Facebook', 'Twitter', 'Pinterest'];
+    protected static $networks = ['Facebook', 'Twitter', 'Pinterest', 'VKontakte', 'Odnoklassniki'];
 
     private $templateFile;
 
@@ -50,7 +50,7 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
         parent::__construct();
 
         $this->displayName = $this->trans('Social media share buttons', [], 'Modules.Sharebuttons.Admin');
-        $this->description = $this->trans('Displays social media sharing buttons (Twitter, Facebook and Pinterest) on every product page.', [], 'Modules.Sharebuttons.Admin');
+        $this->description = $this->trans('Displays social media sharing buttons (Twitter, Facebook, Pinterest, VKontakte and Odnoklassniki) on every product page.', [], 'Modules.Sharebuttons.Admin');
 
         $this->templateFile = 'module:ps_sharebuttons/views/templates/hook/ps_sharebuttons.tpl';
     }
@@ -61,6 +61,8 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
             && Configuration::updateValue('PS_SC_TWITTER', 1)
             && Configuration::updateValue('PS_SC_FACEBOOK', 1)
             && Configuration::updateValue('PS_SC_PINTEREST', 1)
+            && Configuration::updateValue('PS_SC_VKONTAKTE', 1)
+            && Configuration::updateValue('PS_SC_ODNOKLASSNIKI', 1)
             && $this->registerHook('displayProductButtons');
     }
 
@@ -193,6 +195,22 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
                 'label' => $this->trans('Pinterest', [], 'Modules.Sharebuttons.Shop'),
                 'class' => 'pinterest',
                 'url' => 'https://www.pinterest.com/pin/create/button/?media='.$sharing_img.'&url='.$sharing_url,
+            ];
+        }
+
+        if (Configuration::get('PS_SC_VKONTAKTE')) {
+            $social_share_links['vkontakte'] = [
+                'label' => $this->trans('VKontakte', [], 'Modules.Sharebuttons.Shop'),
+                'class' => 'vkontakte',
+                'url' => 'https://vk.com/share.php?url='.$sharing_url,
+            ];
+        }
+
+        if (Configuration::get('PS_SC_ODNOKLASSNIKI')) {
+            $social_share_links['odnoklassniki'] = [
+                'label' => $this->trans('Odnoklassniki', [], 'Modules.Sharebuttons.Shop'),
+                'class' => 'odnoklassniki',
+                'url' => 'https://connect.ok.ru/offer?url='.$sharing_url,
             ];
         }
 
