@@ -178,7 +178,7 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
             $social_share_links['facebook'] = array(
                 'label' => $this->trans('Share', array(), 'Modules.Sharebuttons.Shop'),
                 'class' => 'facebook',
-                'url' => 'http://www.facebook.com/sharer.php?u='.$sharing_url,
+                'url' => 'http://www.facebook.com/sharer.php?u='.urlencode($sharing_url),
             );
         }
 
@@ -186,7 +186,7 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
             $social_share_links['twitter'] = array(
                 'label' => $this->trans('Tweet', array(), 'Modules.Sharebuttons.Shop'),
                 'class' => 'twitter',
-                'url' => 'https://twitter.com/intent/tweet?text='.$sharing_name.' '.$sharing_url,
+                'url' => 'https://twitter.com/intent/tweet?text='.urlencode($sharing_name.' '.$sharing_url),
             );
         }
 
@@ -194,7 +194,7 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
             $social_share_links['googleplus'] = array(
                 'label' => $this->trans('Google+', array(), 'Modules.Sharebuttons.Shop'),
                 'class' => 'googleplus',
-                'url' => 'https://plus.google.com/share?url='.$sharing_url,
+                'url' => 'https://plus.google.com/share?url='.urlencode($sharing_url),
             );
         }
 
@@ -202,7 +202,7 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
             $social_share_links['pinterest'] = array(
                 'label' => $this->trans('Pinterest', array(), 'Modules.Sharebuttons.Shop'),
                 'class' => 'pinterest',
-                'url' => 'http://www.pinterest.com/pin/create/button/?media='.$sharing_img.'&url='.$sharing_url,
+                'url' => 'http://www.pinterest.com/pin/create/button/?media='.$sharing_img.'&url='.urlencode($sharing_url),
             );
         }
 
