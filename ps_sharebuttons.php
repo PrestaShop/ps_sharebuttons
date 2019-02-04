@@ -44,7 +44,7 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
         $this->need_instance = 0;
 
         $this->ps_versions_compliancy = array('min' => '1.7.1.0', 'max' => _PS_VERSION_);
-        $this->_directory = dirname(__FILE__);
+        $this->_directory = __DIR__;
 
         $this->bootstrap = true;
         parent::__construct();
