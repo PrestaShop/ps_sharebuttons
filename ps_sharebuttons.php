@@ -71,7 +71,7 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
         $values = array();
 
         foreach (self::$networks as $network) {
-            $values['PS_SC_'.Tools::strtoupper($network)] = (int)Tools::getValue('PS_SC_'.Tools::strtoupper($network), Configuration::get('PS_SC_'.Tools::strtoupper($network)));
+            $values['PS_SC_' . Tools::strtoupper($network)] = (int)Tools::getValue('PS_SC_' . Tools::strtoupper($network), Configuration::get('PS_SC_' . Tools::strtoupper($network)));
         }
 
         return $values;
@@ -82,19 +82,19 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
         $output = '';
         if (Tools::isSubmit('submitSocialSharing')) {
             foreach (self::$networks as $network) {
-                Configuration::updateValue('PS_SC_'.Tools::strtoupper($network), (int)Tools::getValue('PS_SC_'.Tools::strtoupper($network)));
+                Configuration::updateValue('PS_SC_' . Tools::strtoupper($network), (int)Tools::getValue('PS_SC_' . Tools::strtoupper($network)));
             }
 
             $this->_clearCache($this->templateFile);
 
             $output .= $this->displayConfirmation($this->trans('Settings updated.', array(), 'Admin.Notifications.Success'));
 
-            Tools::redirectAdmin($this->context->link->getAdminLink('AdminModules', true).'&conf=6&configure='.$this->name.'&tab_module='.$this->tab.'&module_name='.$this->name);
+            Tools::redirectAdmin($this->context->link->getAdminLink('AdminModules', true) . '&conf=6&configure=' . $this->name . '&tab_module=' . $this->tab . '&module_name=' . $this->name);
         }
 
         $helper = new HelperForm();
         $helper->submit_action = 'submitSocialSharing';
-        $helper->currentIndex = $this->context->link->getAdminLink('AdminModules', false).'&configure='.$this->name.'&tab_module='.$this->tab.'&module_name='.$this->name;
+        $helper->currentIndex = $this->context->link->getAdminLink('AdminModules', false) . '&configure=' . $this->name . '&tab_module=' . $this->tab . '&module_name=' . $this->name;
         $helper->token = Tools::getAdminTokenLite('AdminModules');
         $helper->tpl_vars = array('fields_value' => $this->getConfigFieldsValues());
 
@@ -103,15 +103,15 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
             $fields[] = array(
                 'type' => 'switch',
                 'label' => $network,
-                'name' => 'PS_SC_'.Tools::strtoupper($network),
+                'name' => 'PS_SC_' . Tools::strtoupper($network),
                 'values' => array(
                     array(
-                        'id' => Tools::strtolower($network).'_active_on',
+                        'id' => Tools::strtolower($network) . '_active_on',
                         'value' => 1,
                         'label' => $this->trans('Enabled', array(), 'Admin.Global')
                     ),
                     array(
-                        'id' => Tools::strtolower($network).'_active_off',
+                        'id' => Tools::strtolower($network) . '_active_off',
                         'value' => 0,
                         'label' => $this->trans('Disabled', array(), 'Admin.Global')
                     )
@@ -119,7 +119,7 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
             );
         }
 
-        return $output.$helper->generateForm(array(
+        return $output . $helper->generateForm(array(
             array(
                 'form' => array(
                     'legend' => array(
@@ -178,7 +178,7 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
             $social_share_links['facebook'] = array(
                 'label' => $this->trans('Share', array(), 'Modules.Sharebuttons.Shop'),
                 'class' => 'facebook',
-                'url' => 'http://www.facebook.com/sharer.php?u='.$sharing_url,
+                'url' => 'http://www.facebook.com/sharer.php?u=' . $sharing_url,
             );
         }
 
@@ -186,7 +186,7 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
             $social_share_links['twitter'] = array(
                 'label' => $this->trans('Tweet', array(), 'Modules.Sharebuttons.Shop'),
                 'class' => 'twitter',
-                'url' => 'https://twitter.com/intent/tweet?text='.$sharing_name.' '.$sharing_url,
+                'url' => 'https://twitter.com/intent/tweet?text=' . $sharing_name . ' ' . $sharing_url,
             );
         }
 
@@ -194,7 +194,7 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
             $social_share_links['googleplus'] = array(
                 'label' => $this->trans('Google+', array(), 'Modules.Sharebuttons.Shop'),
                 'class' => 'googleplus',
-                'url' => 'https://plus.google.com/share?url='.$sharing_url,
+                'url' => 'https://plus.google.com/share?url=' . $sharing_url,
             );
         }
 
@@ -202,7 +202,7 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
             $social_share_links['pinterest'] = array(
                 'label' => $this->trans('Pinterest', array(), 'Modules.Sharebuttons.Shop'),
                 'class' => 'pinterest',
-                'url' => 'http://www.pinterest.com/pin/create/button/?media='.$sharing_img.'&url='.$sharing_url,
+                'url' => 'http://www.pinterest.com/pin/create/button/?media=' . $sharing_img . '&url=' . $sharing_url,
             );
         }
 
