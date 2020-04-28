@@ -2,7 +2,7 @@
 
 ## About
 
-Displays social media sharing buttons (Twitter, Facebook, Google+ and Pinterest) on every product page.
+Displays social media sharing buttons (Twitter, Facebook and Pinterest) on every product page.
 
 ## Contributing
 
