@@ -32,7 +32,7 @@ use PrestaShop\PrestaShop\Core\Module\WidgetInterface;
 
 class Ps_Sharebuttons extends Module implements WidgetInterface
 {
-    protected static $networks = array('Facebook', 'Twitter', 'Google', 'Pinterest');
+    protected static $networks = array('Facebook', 'Twitter', 'Pinterest');
 
     private $templateFile;
 
@@ -60,7 +60,6 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
         return parent::install()
             && Configuration::updateValue('PS_SC_TWITTER', 1)
             && Configuration::updateValue('PS_SC_FACEBOOK', 1)
-            && Configuration::updateValue('PS_SC_GOOGLE', 1)
             && Configuration::updateValue('PS_SC_PINTEREST', 1)
             && $this->registerHook('displayProductButtons')
         ;
@@ -187,14 +186,6 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
                 'label' => $this->trans('Tweet', array(), 'Modules.Sharebuttons.Shop'),
                 'class' => 'twitter',
                 'url' => 'https://twitter.com/intent/tweet?text='.$sharing_name.' '.$sharing_url,
-            );
-        }
-
-        if (Configuration::get('PS_SC_GOOGLE')) {
-            $social_share_links['googleplus'] = array(
-                'label' => $this->trans('Google+', array(), 'Modules.Sharebuttons.Shop'),
-                'class' => 'googleplus',
-                'url' => 'https://plus.google.com/share?url='.$sharing_url,
             );
         }
 
