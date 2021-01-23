@@ -156,7 +156,7 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
         $sharing_url = urlencode(addcslashes($this->context->link->getProductLink($product), "'"));
         $sharing_name = urlencode(addcslashes($product->name, "'"));
 
-        $image_cover_id = $product->getCover($product->id);
+        $image_cover_id = Product::getCover($product->id);
         if (is_array($image_cover_id) && isset($image_cover_id['id_image'])) {
             $image_cover_id = (int) $image_cover_id['id_image'];
         } else {
