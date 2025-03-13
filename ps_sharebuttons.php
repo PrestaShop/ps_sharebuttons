@@ -216,7 +216,7 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
             $social_share_links['pinterest'] = [
                 'label' => $this->trans('Pinterest', [], 'Modules.Sharebuttons.Shop'),
                 'class' => 'pinterest',
-                'url' => 'https://www.pinterest.com/pin/create/button/?media=' . $sharing_img . '&url=' . $sharing_url,
+                'url' => 'https://www.pinterest.com/pin/create/button/?url=' . $sharing_url . '/&media=' . $sharing_img . '&description=' . $sharing_name,
             ];
         }
 
