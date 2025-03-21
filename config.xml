@@ -2,7 +2,7 @@
 <module>
 	<name>ps_sharebuttons</name>
 	<displayName><![CDATA[Social media share buttons]]></displayName>
-	<version><![CDATA[2.1.2]]></version>
+	<version><![CDATA[2.1.3]]></version>
 	<description><![CDATA[Displays social media sharing buttons (Twitter, Facebook, Google+ and Pinterest) on every product page.]]></description>
 	<author><![CDATA[PrestaShop]]></author>
 	<is_configurable>1</is_configurable>

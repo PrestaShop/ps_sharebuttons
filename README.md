@@ -4,6 +4,10 @@
 
 Instagram, YouTube, gather your community with social media sharing buttons on product pages.
 
+## Compatibility
+
+PrestaShop: `1.7.1.0` or later
+
 ## Multistore compatibility
 
 This module is compatible with multistore ✔
@@ -11,6 +15,12 @@ This module is compatible with multistore ✔
 - It can be configured differently from one store to another.
 - It can be configured quickly in the same way on all stores thanks to the all shops context or using shop groups.
 - It can be activated on one store and deactivated on another
+
+## How to test
+
+Link to specs : https://docs.prestashop-project.org/functional-documentation/functional-documentation/ux-ui/back-office/improve/modules/social-media-share-buttons
+
+Enable/disable social media share buttons and check on FO the result
 
 ## Reporting issues
 

@@ -46,7 +46,7 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
         $this->name = 'ps_sharebuttons';
         $this->tab = 'advertising_marketing';
         $this->author = 'PrestaShop';
-        $this->version = '2.1.2';
+        $this->version = '2.1.3';
         $this->need_instance = 0;
 
         $this->ps_versions_compliancy = ['min' => '1.7.1.0', 'max' => _PS_VERSION_];
@@ -216,7 +216,7 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
             $social_share_links['pinterest'] = [
                 'label' => $this->trans('Pinterest', [], 'Modules.Sharebuttons.Shop'),
                 'class' => 'pinterest',
-                'url' => 'https://www.pinterest.com/pin/create/button/?media=' . $sharing_img . '&url=' . $sharing_url,
+                'url' => 'https://www.pinterest.com/pin/create/button/?url=' . $sharing_url . '/&media=' . $sharing_img . '&description=' . $sharing_name,
             ];
         }
 
