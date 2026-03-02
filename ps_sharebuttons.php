@@ -37,7 +37,7 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
      */
     const PS_16_EQUIVALENT_MODULE = 'socialsharing';
 
-    protected static $networks = ['Facebook', 'Twitter', 'Pinterest'];
+    protected static $networks = ['Facebook', 'X', 'Whatsapp', 'Pinterest'];
 
     private $templateFile;
 
@@ -46,7 +46,7 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
         $this->name = 'ps_sharebuttons';
         $this->tab = 'advertising_marketing';
         $this->author = 'PrestaShop';
-        $this->version = '2.1.3';
+        $this->version = '2.2.0';
         $this->need_instance = 0;
 
         $this->ps_versions_compliancy = ['min' => '1.7.1.0', 'max' => _PS_VERSION_];
@@ -63,8 +63,9 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
     public function install()
     {
         if (!$this->uninstallPrestaShop16Module()) {
-            Configuration::updateValue('PS_SC_TWITTER', 1);
+            Configuration::updateValue('PS_SC_X', 1);
             Configuration::updateValue('PS_SC_FACEBOOK', 1);
+            Configuration::updateValue('PS_SC_WHATSAPP', 1);
             Configuration::updateValue('PS_SC_PINTEREST', 1);
         }
 
@@ -204,11 +205,19 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
             ];
         }
 
-        if (Configuration::get('PS_SC_TWITTER')) {
-            $social_share_links['twitter'] = [
-                'label' => $this->trans('Tweet', [], 'Modules.Sharebuttons.Shop'),
-                'class' => 'twitter',
-                'url' => 'https://twitter.com/intent/tweet?text=' . $sharing_name . ' ' . $sharing_url,
+        if (Configuration::get('PS_SC_X')) {
+            $social_share_links['x'] = [
+                'label' => $this->trans('Post on X', [], 'Modules.Sharebuttons.Shop'),
+                'class' => 'x',
+                'url' => 'https://x.com/intent/post?text=' . $sharing_name . ' ' . $sharing_url,
+            ];
+        }
+
+        if (Configuration::get('PS_SC_WHATSAPP')) {
+            $social_share_links['whatsapp'] = [
+                'label' => $this->trans('Share on WhatsApp', [], 'Modules.Sharebuttons.Shop'),
+                'class' => 'whatsapp',
+                'url' => 'https://wa.me/?text=' . $sharing_name . '%20' . $sharing_url,
             ];
         }
 
