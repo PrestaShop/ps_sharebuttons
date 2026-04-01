@@ -37,7 +37,7 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
      */
     const PS_16_EQUIVALENT_MODULE = 'socialsharing';
 
-    protected static $networks = ['Facebook', 'Twitter', 'Pinterest'];
+    protected static $networks = ['Facebook', 'X', 'Pinterest'];
 
     private $templateFile;
 
@@ -208,7 +208,7 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
             $social_share_links['twitter'] = [
                 'label' => $this->trans('Tweet', [], 'Modules.Sharebuttons.Shop'),
                 'class' => 'twitter',
-                'url' => 'https://twitter.com/intent/tweet?text=' . $sharing_name . ' ' . $sharing_url,
+                'url' => 'https://x.com/intent/post?text=' . $sharing_name . ' ' . $sharing_url,
             ];
         }
 
