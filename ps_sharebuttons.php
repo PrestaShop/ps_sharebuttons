@@ -63,7 +63,7 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
     public function install()
     {
         if (!$this->uninstallPrestaShop16Module()) {
-            Configuration::updateValue('PS_SC_TWITTER', 1);
+            Configuration::updateValue('PS_SC_X', 1);
             Configuration::updateValue('PS_SC_FACEBOOK', 1);
             Configuration::updateValue('PS_SC_PINTEREST', 1);
         }
@@ -204,8 +204,8 @@ class Ps_Sharebuttons extends Module implements WidgetInterface
             ];
         }
 
-        if (Configuration::get('PS_SC_TWITTER')) {
-            $social_share_links['twitter'] = [
+        if (Configuration::get('PS_SC_X')) {
+            $social_share_links['X'] = [
                 'label' => $this->trans('Tweet', [], 'Modules.Sharebuttons.Shop'),
                 'class' => 'twitter',
                 'url' => 'https://x.com/intent/post?text=' . $sharing_name . ' ' . $sharing_url,
